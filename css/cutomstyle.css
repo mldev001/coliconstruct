@@ -1,3 +1,22 @@
+/* coliconstruct color pallete */
+:root{
+    --primary-skyblue:#78bbf9;
+    --primary-darkblue:#083465;
+    #87788c
+
+}
+
+.text-color-skyblue{
+    color:var(--primary-skyblue);
+    text-shadow: 1px 1px rgba(8,52,101,0.7);
+}
+
+.text-color-darkblue{
+    color:var(--primary-darkblue);
+    text-shadow: 1px 1px rgba(120,187,249,0.7);
+}
+
+
 .custom-nav-href{
     display:flex;
     
@@ -11,6 +30,7 @@
     line-height: 0.8;
     padding-top:10px;
     text-align: left;
+    /* text-shadow: 1px 1px rgba(120,187,249,0.7); */
 }
 .logo-text1{
     font-weight: 500;
