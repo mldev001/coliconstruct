@@ -4,6 +4,22 @@
 }
 .custom-nav-href p{
     font-size: 25px;
-    margin-left:4px;
-    
+    margin-left:4px;   
+}
+
+.logo-text{
+    line-height: 0.8;
+    padding-top:10px;
+    text-align: left;
+}
+.logo-text1{
+    font-weight: 500;
+    margin: 0px;
+    font-size:10px;
+}
+
+.logo-text2{
+    color:white;
+    margin-left:5px;
+    font-size: 12px;
 }
