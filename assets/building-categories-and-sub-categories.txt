@@ -1,0 +1,29 @@
+different types of buildings :
+
+
+1. Residential
+	a. Condominiums
+	b. Apartments
+	c. Dormitory
+	d. Townhouse
+	e. Penthouse
+	f. Hotel
+	g. Private Villa
+
+2. Public
+	a. School
+	b. Hospital
+	c. City Council
+	d. Libraries
+	f. Public Building
+	g. Government Establishment
+	h. Civic Space
+	i. Restaurant
+
+3. Commercial
+	a. Office Buildings
+	b. Industrial
+	c. Retail
+	d.
+
+	
