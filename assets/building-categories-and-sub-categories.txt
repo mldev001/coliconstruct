@@ -24,6 +24,10 @@ different types of buildings :
 	a. Office Buildings
 	b. Industrial
 	c. Retail
-	d.
+4. Industrial
+	a. Factory
+	b. Warehouse
+	c. Data Center
+	
 
 	
