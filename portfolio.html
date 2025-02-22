@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+</head>
+
+<body>
+    <button id="filter_all" class="btn-filter-proj">All</button>
+    <button id="filter_residential" class="btn-filter-proj">Residential</button>
+    <button id="filter_public" class="btn-filter-proj">Public</button>
+    <button id="filter_commercial" class="btn-filter-proj">Commercial</button>
+    <button id="filter_industrial" class="btn-filter-proj">Industrial</button>
+
+</body>
+
+<script>
+    
+    
+    $(document).ready(function(){    
+       $.get('/js/Projects.json',function(data,status){
+        
+       
+        // filter settings
+        var filter_settings = [];
+        $('.btn-filter-proj').click(function(e){
+            
+            if($(this).text() == "All"){
+                $('.btn-filter-proj').attr("disabled",false);
+                console.log(filter_settings);
+                filter_settings=[];      
+            }else{
+                $(this).attr("disabled",true);
+                filter_settings.push($(this).text())
+            }
+            
+            //Apply Filter    
+            applyFilter()
+            console.log(filter_settings);
+        })
+
+        
+        function applyFilter(){
+            filter_settings.forEach(function(item,index){
+                var projects = data.Projects.filter(function(projects){
+                    return projects.category == filter_settings[index];
+                })
+                console.log(projects)
+            })
+        }
+        
+
+        // console.log(items)
+       });
+      
+    });
+    
+   
+
+   
+
+</script>
+
+</html>
