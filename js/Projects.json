@@ -4,20 +4,10 @@
             "id" : 0,
             "title" : "Sample Project Title 1",
             "description" : "project sample 1",
-            "category" : "Residential"
-        },
-        {
-            "id" : 1,
-            "title" : "Sample Project Title 2",
-            "description" : "project sample 2",
-            "category" : "Residential"
-       
-        },
-        {
-            "id" : 2,
-            "title" : "Sample Project Title 3",
-            "description" : "project sample 3",
-            "category" : "Residential"
-        
+            "category" : "Projects",
+            "sub-category" : "Industrial",
+            "thumbnail-folder" : "/assets/projects",
+            "thumbnail-name" : "test.jpg"
         }
-]}
+    ]
+}

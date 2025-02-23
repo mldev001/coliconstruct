@@ -18,45 +18,77 @@
 </body>
 
 <script>
-    
-    
-    $(document).ready(function(){    
-       $.get('/js/Projects.json',function(data,status){
-        
-       
+
+
+    function fetchData(callback){
+        $.get('/js/Projects.json',function(data,status){
         // filter settings
-        var filter_settings = [];
+
+        let filter_settings = [];
+        
+
+        displayAllProjects();
+
         $('.btn-filter-proj').click(function(e){
             
             if($(this).text() == "All"){
+
                 $('.btn-filter-proj').attr("disabled",false);
-                console.log(filter_settings);
-                filter_settings=[];      
+                filter_settings=[];
+                displayAllProjects();
+
             }else{
                 $(this).attr("disabled",true);
                 filter_settings.push($(this).text())
+                console.log(filter_settings)
             }
             
             //Apply Filter    
             applyFilter()
-            console.log(filter_settings);
         })
-
         
+        function displayAllProjects(){
+
+            if(filter_settings.length == 0){
+
+            let projects = data.Projects.filter(function(projects){
+                return projects.id != null;
+            })
+                // console.log("walang laman ang filter")
+                // console.log(projects)
+              callback(projects)
+               
+            }
+        }
+
         function applyFilter(){
             filter_settings.forEach(function(item,index){
                 var projects = data.Projects.filter(function(projects){
                     return projects.category == filter_settings[index];
                 })
-                console.log(projects)
+                // console.log(projects)
+                callback(projects)
+               
             })
         }
+       }); 
+    }
+    
+  
+  fetchData(function(data){
+    data.forEach(function(item,index){
+        console.log(item);
+    })
+  })
+    
+    
+
+    // $(document).ready(function(){
         
 
-        // console.log(items)
-       });
+       
       
-    });
+    // });
     
    
 
