@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Coliconstruct Portfolio</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Custom Styles CSS -->
+    <link href="css/cutomstyle.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        
 </head>
 
 <body>
-    <button id="filter_all" class="btn-filter-proj">All</button>
-    <button id="filter_residential" class="btn-filter-proj">Residential</button>
-    <button id="filter_public" class="btn-filter-proj">Public</button>
-    <button id="filter_commercial" class="btn-filter-proj">Commercial</button>
-    <button id="filter_industrial" class="btn-filter-proj">Industrial</button>
 
+    <section class="container" id="portfolio">
+        <div class="section-header">
+            <h1 class="">Our Portfolio</h1>
+        </div>
+        <div class="portfolio-categories">
+            <div><a href="" class="projects-btn selected">Projects</a></div>
+            <div><a href="" class="certificates-btn">Certificates</a></div>
+            <div><a href="" class="clients-btn">Clients</a></div>
+        </div>
+        <div id="layout-container">
+            
+        </div>
+        
+
+    </section>
 </body>
 
 <script>
@@ -51,8 +70,8 @@
 
             if(filter_settings.length == 0){
 
-            let projects = data.Projects.filter(function(projects){
-                return projects.id != null;
+            let projects = data.Portfolio.filter(function(projects){
+                return projects.category == "Projects";
             })
                 // console.log("walang laman ang filter")
                 // console.log(projects)
@@ -63,7 +82,7 @@
 
         function applyFilter(){
             filter_settings.forEach(function(item,index){
-                var projects = data.Projects.filter(function(projects){
+                var projects = data.Portfolio.filter(function(projects){
                     return projects.category == filter_settings[index];
                 })
                 // console.log(projects)

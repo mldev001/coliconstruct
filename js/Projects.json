@@ -1,13 +1,17 @@
 {
-    "Projects":[
+    "Portfolio":[
         {
             "id" : 0,
             "title" : "Sample Project Title 1",
             "description" : "project sample 1",
+            "client-name" : "Cebex",
+            "project-start" : "12-01-2024",
+            "project-end" : "01-05-2025",
+            "address" : "Cebu Mandaue City",
             "category" : "Projects",
             "sub-category" : "Industrial",
-            "thumbnail-folder" : "/assets/projects",
-            "thumbnail-name" : "test.jpg"
+            "thumbnail-folder" : "/assets/projects/",
+            "thumbnail-name" : "test.jpg" 
         }
     ]
 }
