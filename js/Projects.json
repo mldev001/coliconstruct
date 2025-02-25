@@ -8,8 +8,8 @@
             "project-start" : "12-01-2024",
             "project-end" : "01-05-2025",
             "address" : "Cebu Mandaue City",
-            "category" : "Projects",
-            "sub-category" : "Industrial",
+            "category" : "projects",
+            "sub-category" : "industrial",
             "thumbnail-folder" : "/assets/projects/",
             "thumbnail-name" : "test.jpg" 
         }

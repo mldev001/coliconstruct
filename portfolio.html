@@ -24,9 +24,16 @@
             <h1 class="">Our Portfolio</h1>
         </div>
         <div class="portfolio-categories">
-            <div><a href="" class="projects-btn selected">Projects</a></div>
-            <div><a href="" class="certificates-btn">Certificates</a></div>
-            <div><a href="" class="clients-btn">Clients</a></div>
+            <div><a href="" class="" id="show_projects_btn">Projects</a></div>
+            <div><a href="" class="" id="show_certificates_btn">Certificates</a></div>
+        </div>
+        <div class="project-filters">
+            <div><a href="" class="filters-btn" id="show_projects_btn">All</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Certificates</a></div>
+        </div>
+        <div class="project-filters">
+            <div><a href="" class="filters-btn" id="show_projects_btn"></a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Certificates</a></div>
         </div>
         <div id="layout-container">
             
@@ -44,34 +51,30 @@
         // filter settings
 
         let filter_settings = [];
-        
-
         displayAllProjects();
 
-        $('.btn-filter-proj').click(function(e){
+        $('.filters-btn').click(function(e){
+            e.preventDefault();
+            let filter = $(this).text().toLowerCase()
             
-            if($(this).text() == "All"){
-
-                $('.btn-filter-proj').attr("disabled",false);
-                filter_settings=[];
-                displayAllProjects();
-
-            }else{
-                $(this).attr("disabled",true);
-                filter_settings.push($(this).text())
-                console.log(filter_settings)
-            }
+            filterPortfolio(filter)
             
             //Apply Filter    
             applyFilter()
         })
         
+        
+
+        function filterPortfolio(filter){
+            console.log(filter)
+        }
+
         function displayAllProjects(){
 
             if(filter_settings.length == 0){
 
             let projects = data.Portfolio.filter(function(projects){
-                return projects.category == "Projects";
+                return projects.category == "projects";
             })
                 // console.log("walang laman ang filter")
                 // console.log(projects)
