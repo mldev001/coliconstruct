@@ -14,7 +14,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <!-- Custom Styles CSS -->
     <link href="css/cutomstyle.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -24,18 +24,26 @@
             <h1 class="">Our Portfolio</h1>
         </div>
         <div class="portfolio-categories">
-            <div><a href="" class="" id="show_projects_btn">Projects</a></div>
-            <div><a href="" class="" id="show_certificates_btn">Certificates</a></div>
+            <div><a href="" class="category-btn" id="show_projects_btn">Projects</a></div>
+            <div><a href="" class="category-btn" id="show_certificates_btn">Certificates</a></div>
         </div>
         <div class="project-filters">
             <div><a href="" class="filters-btn" id="show_projects_btn">All</a></div>
-            <div><a href="" class="filters-btn" id="show_certificates_btn">Certificates</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Industrial</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Commercial</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Public</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Residential</a></div>
         </div>
-        <div class="project-filters">
-            <div><a href="" class="filters-btn" id="show_projects_btn"></a></div>
-            <div><a href="" class="filters-btn" id="show_certificates_btn">Certificates</a></div>
+        <div class="certificate-filters">
+            <div><a href="" class="filters-btn" id="show_projects_btn">All</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Project</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Business Accomplishments</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Company Development</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn">Partnership</a></div>
+            <div><a href="" class="filters-btn" id="show_certificates_btn"></a></div>
         </div>
-        <div id="layout-container">
+
+        <div class="layout-container">
             
         </div>
         
@@ -46,75 +54,90 @@
 <script>
 
 
-    function fetchData(callback){
-        $.get('/js/Projects.json',function(data,status){
+    function fetchData(category_filter,callback){
+        $.get('/js/Portfolio.json',function(data,status){
         // filter settings
 
         let filter_settings = [];
-        displayAllProjects();
+            
+        
+        function getAllData(category_filter){
+            
+            let portfolios = data.Portfolio.filter(function(portfolio){
+                if(category_filter==null){
+                    return portfolio.id != null
+                }else if(category_filter!=null&&typeof(category_filter)!=="string"){
+                console.log("Invalid Filter")
+                }else{
+                    return portfolio.category == category_filter
+                 }
+            })            
+              callback(portfolios)
+        }
 
-        $('.filters-btn').click(function(e){
-            e.preventDefault();
-            let filter = $(this).text().toLowerCase()
+        getAllData(category_filter)
+
+       });        
+    }//End Of FetchData
+    
+    //Filter Data
+    $(document).ready(function(){
+        //load all projects
+        var category_filter = "Projects"
+        var sub_category_filter = "All" // All is the default filter
+        fetchData(category_filter,function(data){
+            data.forEach(function(item,index){
+                console.log(item)
+            })
+        })
+        
+        $('.category-btn').click(function(e){
+            e.preventDefault()
             
-            filterPortfolio(filter)
+            category_filter = $(this).text()
             
-            //Apply Filter    
-            applyFilter()
+            fetchData(category_filter,function(data){
+                data.forEach(function(item,index){
+                    console.log(item)
+                })
+            })
         })
         
         
+        $('.filters-btn').click(function(e){
+            e.preventDefault();
+            
+            sub_category_filter = $(this).text()
+            var filtered_results = [];
 
-        function filterPortfolio(filter){
-            console.log(filter)
-        }
+            fetchData(category_filter,function(data){
+                
+                if(sub_category_filter == "All"){
+                    
+                    filtered_results = data.filter(function(item){
+                        filtered_results.push(item)
+                    })
+                }else if(sub_category_filter != "All"){
 
-        function displayAllProjects(){
+                    data.filter(function(item){
+                        if(item.sub_category == sub_category_filter){
+                            filtered_results.push(item)
+                        }
+                    })
 
-            if(filter_settings.length == 0){
-
-            let projects = data.Portfolio.filter(function(projects){
-                return projects.category == "projects";
+                }
             })
-                // console.log("walang laman ang filter")
-                // console.log(projects)
-              callback(projects)
-               
-            }
-        }
+            console.log(filtered_results)
+            
+            //Display Data
+            
+        })
 
-        function applyFilter(){
-            filter_settings.forEach(function(item,index){
-                var projects = data.Portfolio.filter(function(projects){
-                    return projects.category == filter_settings[index];
-                })
-                // console.log(projects)
-                callback(projects)
-               
-            })
-        }
-       }); 
-    }
-    
-  
-  fetchData(function(data){
-    data.forEach(function(item,index){
-        console.log(item);
+
+
+
     })
-  })
     
-    
-
-    // $(document).ready(function(){
-        
-
-       
-      
-    // });
-    
-   
-
-   
 
 </script>
 

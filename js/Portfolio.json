@@ -1,0 +1,46 @@
+{
+    "Portfolio":[
+        {
+            "id" : 0,
+            "title" : "Sample Project Title 1",
+            "description" : "This is a sample Description!,This is a sample Description!,This is a sample Description!,",
+            "client_name" : "Cebex",
+            "project_start" : "12-01-2024",
+            "project_end" : "01-05-2025",
+            "address" : "Cebu Mandaue City",
+            "category" : "Projects",
+            "sub_category" : "Industrial",
+            "thumbnail_folder" : "/assets/projects/",
+            "file_type" : ".jpg",
+            "thumbnail_name" : "0-project1"
+        },
+        {
+            "id" : 1,
+            "title" : "Sample Project Title 2",
+            "description" : "This is a sample Description!,This is a sample Description!,This is a sample Description!,",
+            "client_name" : "Cebex",
+            "project_start" : "12-01-2024",
+            "project_end" : "01-05-2025",
+            "address" : "Cebu Mandaue City",
+            "category" : "Projects",
+            "sub_category" : "Residential",
+            "thumbnail_folder" : "/assets/projects/",
+            "file_type" : ".jpg",
+            "thumbnail_name" : "0-project1"
+        },
+        {
+            "id" : 2,
+            "title" : "Certificate Title 1",
+            "description" : "This is a sample Description!,This is a sample Description!,This is a sample Description!,",
+            "client_name" : "Cebex",
+            "project_start" : "01-05-2025",
+            "project_end" : "01-05-2025",
+            "address" : "Cebu Mandaue City",
+            "category" : "Certificates",
+            "sub_category" : "Project",
+            "thumbnail_folder" : "/assets/certificates/",
+            "file-type" : ".jpg",
+            "thumbnail_name" : "1-certificate1.jpg" 
+        }
+    ]
+}
